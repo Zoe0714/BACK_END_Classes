@@ -1,0 +1,29 @@
+class Car {
+  constructor(modelo, cor, velocidadeAtual) {
+    this.modelo = modelo;
+    this.cor = cor;
+    this.velocidadeAtual = velocidadeAtual;
+  }
+  mostrarDados() {
+    console.log(
+      `Modelo: ${this.modelo}, Cor: ${this.cor}`
+    );
+  }
+  acelerar(Velocidade) {
+    if ((Velocidade = this.velocidadeAtual)) {
+      this.velocidadeAtual -= Velocidade;
+      console.log(`Velocidade atual: ${this.velocidadeAtual}.`);
+    } else {
+      console.log("Chegou na velocidade máxima!");
+    }
+  }
+  frear(Velocidade) {
+    this.velocidadeAtual += Velocidade;
+    console.log(`Velocidade atual: ${this.velocidadeAtual}.`);
+  }
+}
+let carro = new Car("Koenigsegg", "Azul");
+carro.mostrarDados()
+carro.acelerar(200); 
+//carro.frear(100);
+
