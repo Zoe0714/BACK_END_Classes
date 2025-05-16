@@ -5,25 +5,31 @@ class Car {
     this.velocidadeAtual = velocidadeAtual;
   }
   mostrarDados() {
+    console.log(`Modelo: ${this.modelo}, Cor: ${this.cor}`);
+  }
+  acelerar(valor) {
+    this.velocidadeAtual += valor;
     console.log(
-      `Modelo: ${this.modelo}, Cor: ${this.cor}`
+      `${this.modelo} acelerou. Velocidade atual: ${this.velocidadeAtual} km/h`
     );
   }
-  acelerar(Velocidade) {
-    if ((Velocidade = this.velocidadeAtual)) {
-      this.velocidadeAtual -= Velocidade;
-      console.log(`Velocidade atual: ${this.velocidadeAtual}.`);
-    } else {
-      console.log("Chegou na velocidade máxima!");
+
+  frear(valor) {
+    this.velocidadeAtual -= valor;
+    if (this.velocidadeAtual < 0) {
+      this.velocidadeAtual = 0;
     }
+    console.log(
+      `Modelo ${this.modelo}, FReou, velocidade${this.velocidadeAtual}km/h`
+    );
   }
-  frear(Velocidade) {
-    this.velocidadeAtual += Velocidade;
-    console.log(`Velocidade atual: ${this.velocidadeAtual}.`);
+  mostraStatus() {
+    console.log(
+      `MOdelo:${this.modelo}, Cor: ${this.cor}, Velocidade atual: ${this.velocidadeAtual}.`
+    );
   }
 }
 let carro = new Car("Koenigsegg", "Azul");
-carro.mostrarDados()
-carro.acelerar(200); 
-//carro.frear(100);
-
+carro.mostraStatus();
+carro.acelerar(200);
+carro.frear(20);
