@@ -1,0 +1,46 @@
+class livro {
+  #titulo;
+  #autor;
+  #disponivel;
+  constructor(titulo, autor) {
+    this.#titulo = titulo;
+    this.#autor = autor;
+    this.#disponivel = disponivel;
+  }
+  emprestar() {
+    if (this.#disponivel) {
+      this.#disponivel = false;
+      console.log(`Livro "${this.titulo}" emprestado com sucesso`);
+    } else {
+      console.log(`Livro "${this.#titulo}"já está emprestado`);
+    }
+  }
+
+  devolver() {
+    if (!this.#disponivel) {
+      this.#disponivel = true;
+      console.log(`Livro ${this.#titulo} devolvido com sucesso`);
+    } else {
+      console.log(`Livro ${this.#titulo} já está disponível`);
+    }
+  }
+  getInfo() {
+    const status = this.#disponivel ? "Disponível" : "Emprestado";
+    return `${this.#titulo} por ${this.#autor}- ${status}`;
+  }
+  isDisponivel() {
+    return this.#disponivel;
+  }
+}
+const livro1 = new livro("Dom Casmurro", "Machado de Assis");
+const livro2 = new livro("O Cortiço", "Aluísio Azevedo");
+
+console.log(livro1.getInfo());
+console.log("Disponível:", livro1.isDisponivel());
+
+livro1.emprestar();
+console.log("Disponível", livro1.isDisponivel());
+livro1.emprestar();
+
+livro1.devolver();
+console.log("Disponível", livro1.isDisponivel);
